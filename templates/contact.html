@@ -2,61 +2,114 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Contactez-moi</title>
+    <title>Contact Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Ajoutez votre style CSS ici pour le design ! */
+        /* Couleurs et Typographie */
+        :root {
+            --bg-color: #1a1a2e; /* Arrière-plan très sombre */
+            --card-color: #2e354a; /* Couleur de la carte */
+            --accent-color: #00bcd4; /* Bleu Cyan/Turquoise pour l'accentuation */
+            --text-color: #e4e4e4; /* Texte clair */
+            --input-bg: #4c546b; /* Fond des champs de saisie */
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            color: var(--text-color);
         }
+
+        /* Conteneur principal */
         .container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
+            background-color: var(--card-color);
+            padding: 40px;
+            border-radius: 12px;
+            /* Ombre portée plus profonde pour l'effet "pro" */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+            width: 90%;
+            max-width: 450px;
+            transition: transform 0.3s ease;
         }
+
+        .container:hover {
+            transform: translateY(-3px); /* Petit effet de survol */
+        }
+
         h2 {
             text-align: center;
-            color: #333;
-            margin-bottom: 20px;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-weight: 600; /* Gras pour le titre */
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
         }
+
         label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #555;
+            margin-bottom: 8px;
+            font-weight: 400; 
+            color: var(--text-color);
+            font-size: 14px;
         }
+
+        /* Champs de saisie et Zone de texte */
         input[type="text"], textarea {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box; /* Important pour inclure le padding dans la largeur */
+            padding: 12px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            box-sizing: border-box;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
+        
+        /* Effet de focus pour les champs */
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            background-color: #5c647c; 
+            box-shadow: 0 0 0 2px var(--accent-color); /* Bordure accentuée au focus */
+        }
+
         textarea {
             resize: vertical;
-            height: 100px;
+            height: 120px;
         }
+
+        /* Bouton d'envoi */
         button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 15px;
+            background-color: var(--accent-color);
+            color: var(--card-color); /* Texte sombre sur l'accentuation */
+            padding: 12px 15px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
             width: 100%;
-            font-size: 16px;
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease;
         }
+        
+        /* Effet de survol du bouton */
         button:hover {
-            background-color: #0056b3;
+            background-color: #00e5ff; /* Version plus claire au survol */
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
+        }
+        
+        /* Note d'information */
+        .info-note {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 12px;
+            color: #999;
         }
     </style>
 </head>
@@ -66,17 +119,17 @@
         <form action="#" method="POST"> 
             
             <label for="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" required>
+            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
 
             <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" required>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
 
             <label for="message">Votre Message :</label>
-            <textarea id="message" name="message" required></textarea>
+            <textarea id="message" name="message" placeholder="Écrivez votre message ici..." required></textarea>
 
             <button type="submit">Envoyer le Message</button>
 
-            <p style="text-align: center; margin-top: 20px; font-size: small; color: #777;">
+            <p class="info-note">
                 *L'enregistrement des données n'est pas fonctionnel pour cet exercice.
             </p>
         </form>
