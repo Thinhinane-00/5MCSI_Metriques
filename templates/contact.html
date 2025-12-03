@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Huly-Style</title>
+    <title>Contact Huly-Style - LED</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /* Définition des variables de couleurs inspirées de Huly */
@@ -10,7 +10,7 @@
             --bg-color: #0b0c10; /* Noir très sombre */
             --card-color: #1a1c24; /* Gris très foncé pour la carte */
             --accent-main: #6e00ff; /* Violet/Bleu vif principal */
-            --accent-light: #50e3c2; /* Vert Cyan/Turquoise pour les accents secondaires (bouton hover) */
+            --accent-light: #50e3c2; /* Vert Cyan/Turquoise pour les accents secondaires */
             --text-color: #ffffff;
             --input-bg: #272a33; 
         }
@@ -26,15 +26,30 @@
             color: var(--text-color);
         }
 
-        /* Conteneur principal (La "Card") */
+        /* Conteneur principal avec l'effet LED */
         .container {
             background-color: var(--card-color);
             padding: 40px;
-            border-radius: 16px; /* Bords plus arrondis */
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 15px rgba(110, 0, 255, 0.1); /* Ombre + léger glow */
+            border-radius: 16px;
             width: 90%;
             max-width: 480px;
-            border: 1px solid rgba(255, 255, 255, 0.05); /* Bordure subtile */
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            
+            /* EFFET LED/GLOW CRUCIAL */
+            box-shadow: 
+                0 0 5px rgba(255, 255, 255, 0.05), /* Lumière très subtile interne */
+                0 0 20px rgba(110, 0, 255, 0.4), /* L'effet néon principal (Violet) */
+                0 0 40px rgba(110, 0, 255, 0.1); /* Propagation large et légère */
+            transition: all 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            /* Renforcement du glow au survol pour un effet dynamique */
+            box-shadow: 
+                0 0 5px rgba(255, 255, 255, 0.05),
+                0 0 30px rgba(110, 0, 255, 0.6), 
+                0 0 60px rgba(110, 0, 255, 0.2);
+            transform: scale(1.01);
         }
 
         h2 {
@@ -43,7 +58,7 @@
             margin-bottom: 30px;
             font-weight: 700;
             font-size: 1.8em;
-            /* Ligne de séparation avec dégradé subtil */
+            text-shadow: 0 0 5px rgba(110, 0, 255, 0.5); 
             border-bottom: 2px solid var(--accent-main);
             padding-bottom: 10px;
             letter-spacing: 0.5px;
@@ -70,11 +85,11 @@
             transition: border-color 0.3s, box-shadow 0.3s;
         }
         
-        /* Effet de focus professionnel (Glow) */
+        /* Effet de focus avec un glow plus prononcé */
         input[type="text"]:focus, textarea:focus {
             outline: none;
             border-color: var(--accent-main);
-            box-shadow: 0 0 0 3px rgba(110, 0, 255, 0.5); 
+            box-shadow: 0 0 5px 3px rgba(110, 0, 255, 0.5); 
             background-color: #272a33; 
         }
 
@@ -99,14 +114,13 @@
             transition: all 0.3s ease;
         }
         
-        /* Effet de survol du bouton (changement de couleur + effet 3D subtil) */
+        /* Effet de survol du bouton (changement de couleur + glow) */
         button:hover {
             background: linear-gradient(135deg, var(--accent-light) 0%, #00d4a7 100%); 
-            box-shadow: 0 6px 20px rgba(80, 227, 194, 0.4);
+            box-shadow: 0 6px 20px rgba(80, 227, 194, 0.6); 
             transform: translateY(-2px);
         }
         
-        /* Note d'information */
         .info-note {
             text-align: center;
             margin-top: 25px;
