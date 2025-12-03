@@ -2,20 +2,21 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Pro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Contact Huly-Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Couleurs et Typographie */
+        /* Définition des variables de couleurs inspirées de Huly */
         :root {
-            --bg-color: #1a1a2e; /* Arrière-plan très sombre */
-            --card-color: #2e354a; /* Couleur de la carte */
-            --accent-color: #00bcd4; /* Bleu Cyan/Turquoise pour l'accentuation */
-            --text-color: #e4e4e4; /* Texte clair */
-            --input-bg: #4c546b; /* Fond des champs de saisie */
+            --bg-color: #0b0c10; /* Noir très sombre */
+            --card-color: #1a1c24; /* Gris très foncé pour la carte */
+            --accent-main: #6e00ff; /* Violet/Bleu vif principal */
+            --accent-light: #50e3c2; /* Vert Cyan/Turquoise pour les accents secondaires (bouton hover) */
+            --text-color: #ffffff;
+            --input-bg: #272a33; 
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             display: flex;
             justify-content: center;
@@ -25,91 +26,92 @@
             color: var(--text-color);
         }
 
-        /* Conteneur principal */
+        /* Conteneur principal (La "Card") */
         .container {
             background-color: var(--card-color);
             padding: 40px;
-            border-radius: 12px;
-            /* Ombre portée plus profonde pour l'effet "pro" */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+            border-radius: 16px; /* Bords plus arrondis */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 15px rgba(110, 0, 255, 0.1); /* Ombre + léger glow */
             width: 90%;
-            max-width: 450px;
-            transition: transform 0.3s ease;
-        }
-
-        .container:hover {
-            transform: translateY(-3px); /* Petit effet de survol */
+            max-width: 480px;
+            border: 1px solid rgba(255, 255, 255, 0.05); /* Bordure subtile */
         }
 
         h2 {
             text-align: center;
-            color: var(--accent-color);
+            color: var(--accent-main);
             margin-bottom: 30px;
-            font-weight: 600; /* Gras pour le titre */
-            border-bottom: 2px solid var(--accent-color);
+            font-weight: 700;
+            font-size: 1.8em;
+            /* Ligne de séparation avec dégradé subtil */
+            border-bottom: 2px solid var(--accent-main);
             padding-bottom: 10px;
+            letter-spacing: 0.5px;
         }
 
         label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 400; 
+            font-weight: 600;
             color: var(--text-color);
-            font-size: 14px;
+            font-size: 0.9em;
         }
 
-        /* Champs de saisie et Zone de texte */
+        /* Champs de saisie */
         input[type="text"], textarea {
             width: 100%;
-            padding: 12px;
+            padding: 14px 16px;
             margin-bottom: 20px;
-            border: none;
-            border-radius: 6px;
+            border: 1px solid var(--input-bg);
+            border-radius: 8px;
             background-color: var(--input-bg);
             color: var(--text-color);
             box-sizing: border-box;
-            transition: background-color 0.3s, box-shadow 0.3s;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
         
-        /* Effet de focus pour les champs */
+        /* Effet de focus professionnel (Glow) */
         input[type="text"]:focus, textarea:focus {
             outline: none;
-            background-color: #5c647c; 
-            box-shadow: 0 0 0 2px var(--accent-color); /* Bordure accentuée au focus */
+            border-color: var(--accent-main);
+            box-shadow: 0 0 0 3px rgba(110, 0, 255, 0.5); 
+            background-color: #272a33; 
         }
 
         textarea {
             resize: vertical;
-            height: 120px;
+            height: 150px;
         }
 
-        /* Bouton d'envoi */
+        /* Bouton d'envoi avec dégradé */
         button {
-            background-color: var(--accent-color);
-            color: var(--card-color); /* Texte sombre sur l'accentuation */
-            padding: 12px 15px;
+            background: linear-gradient(135deg, var(--accent-main) 0%, #3e00a8 100%); 
+            color: var(--text-color); 
+            padding: 15px 20px;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             width: 100%;
-            font-size: 17px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: background-color 0.3s ease;
+            font-size: 1em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(110, 0, 255, 0.4);
+            transition: all 0.3s ease;
         }
         
-        /* Effet de survol du bouton */
+        /* Effet de survol du bouton (changement de couleur + effet 3D subtil) */
         button:hover {
-            background-color: #00e5ff; /* Version plus claire au survol */
-            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
+            background: linear-gradient(135deg, var(--accent-light) 0%, #00d4a7 100%); 
+            box-shadow: 0 6px 20px rgba(80, 227, 194, 0.4);
+            transform: translateY(-2px);
         }
         
         /* Note d'information */
         .info-note {
             text-align: center;
             margin-top: 25px;
-            font-size: 12px;
-            color: #999;
+            font-size: 0.75em;
+            color: #777;
         }
     </style>
 </head>
@@ -118,16 +120,16 @@
         <h2>Me Contacter</h2>
         <form action="#" method="POST"> 
             
-            <label for="prenom">Prénom :</label>
+            <label for="prenom">Prénom</label>
             <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
 
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom de famille" required>
 
-            <label for="message">Votre Message :</label>
-            <textarea id="message" name="message" placeholder="Écrivez votre message ici..." required></textarea>
+            <label for="message">Votre Message</label>
+            <textarea id="message" name="message" placeholder="Laissez votre message pour l'équipe..." required></textarea>
 
-            <button type="submit">Envoyer le Message</button>
+            <button type="submit">Envoyer la Requête</button>
 
             <p class="info-note">
                 *L'enregistrement des données n'est pas fonctionnel pour cet exercice.
